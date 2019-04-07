@@ -139,7 +139,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         hzText.setText(list.get(position).getData().getText());
         hzLay.setOnClickListener(v -> {
             if (position != RecyclerView.NO_POSITION)
-        listener.onItemClick(v,dataStr);
+                listener.onItemClick(v, dataStr);
         });
         }
     }
@@ -167,7 +167,8 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                listener.onItemSelect(view,dataStr,i);
+                    if (position != RecyclerView.NO_POSITION)
+                        listener.onItemSelect(view, dataStr, i);
                 }
 
                 @Override
@@ -190,8 +191,8 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             picLayout = itemView.findViewById(R.id.pic_layout);
         }
 
-        private void bind(int position,final DataStruct dataStr){
-           textDesc.setText(list.get(position).getData().getText());
+        private void bind(int position, final DataStruct dataStr) {
+            textDesc.setText(list.get(position).getData().getText());
 
             Glide.with(context)
                     .load(list.get(position).getData().getUrl())
@@ -199,9 +200,10 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .into(image);
 
             picLayout.setOnClickListener(v -> {
-              if(position != RecyclerView.NO_POSITION){
-            listener.onItemClick(v,dataStr);
-              }
+                if (position != RecyclerView.NO_POSITION) {
+                    if (position != RecyclerView.NO_POSITION)
+                    listener.onItemClick(v, dataStr);
+                }
             });
 
         }
