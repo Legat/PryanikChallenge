@@ -137,11 +137,9 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private void bind(int position, final DataStruct dataStr){
         hzText.setText(list.get(position).getData().getText());
-        hzLay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            listener.onItemClick(v,dataStr);
-            }
+        hzLay.setOnClickListener(v -> {
+            if (position != RecyclerView.NO_POSITION)
+        listener.onItemClick(v,dataStr);
         });
         }
     }
@@ -200,11 +198,10 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .placeholder(R.drawable.ic_block_black)
                     .into(image);
 
-            picLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                listener.onItemClick(v,dataStr);
-                }
+            picLayout.setOnClickListener(v -> {
+              if(position != RecyclerView.NO_POSITION){
+            listener.onItemClick(v,dataStr);
+              }
             });
 
         }
