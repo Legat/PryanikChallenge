@@ -18,4 +18,6 @@ public interface AdapterDelegate<T> {
 
 
     void onBindViewHolder(@NonNull T items, int position, @NonNull RecyclerView.ViewHolder holder);
+
+    void testdelegateAdapter();
 }
