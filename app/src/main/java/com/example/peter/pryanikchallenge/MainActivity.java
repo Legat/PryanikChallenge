@@ -83,6 +83,6 @@ public class MainActivity extends MvpAppCompatActivity implements Adapter.OnItem
 
     @Override
     public void showError() {
-        Toast.makeText(this, "Internet connection is disabled", Toast.LENGTH_LONG);
+        Toast.makeText(this, "Internet connection is disabled at the moment", Toast.LENGTH_LONG);
     }
 }
